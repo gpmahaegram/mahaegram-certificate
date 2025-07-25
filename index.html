@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>प्रमाणपत्र (दाखला ) सत्यापन</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #001f3f;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      background-color: #fff;
+      max-width: 700px;
+      margin: 40px auto;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .header img {
+      height: 60px;
+    }
+    h2 {
+      color: #0056b3;
+      margin: 0;
+    }
+    .info {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    .info strong {
+      display: inline-block;
+      width: 180px;
+    }
+    .note {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #333;
+    }
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+    .form-section {
+      background: #eef2f5;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .form-section label {
+      display: block;
+      margin-top: 10px;
+    }
+    .form-section input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-section button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-section button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <h3>सर्टिफिकेट तपशील भरा</h3>
+      <label>ग्रामपंचायत:</label>
+      <input id="gram" type="text" value="पिंपळगाव, तालुका - भोकरदन, जिल्हा - जालना" />
+
+      <label>दाखला क्रमांक:</label>
+      <input id="kramank" type="text" value="२५००३६९४३६४" />
+
+      <label>दाखल्याचे नाव:</label>
+      <input id="dakhlaName" type="text" value="विवाह नोंद दाखला" />
+
+      <label>व्यक्तीचे नाव:</label>
+      <input id="personName" type="text" value="पांडुरंग गोविंदराव गोपनर" />
+
+      <label>ग्रामसेवकाचे नाव:</label>
+      <input id="officerName" type="text" value="S B RATHODs" />
+
+      <label>दिनांक:</label>
+      <input id="date" type="text" value="३०/०७/२०२५" />
+
+      <button onclick="fillData()">प्रमाणपत्र तयार करा</button>
+    </div>
+
+    <div id="certificateContent" style="display:none;">
+      <div class="header">
+        <img src="logo2.png" alt="आपले सरकार" />
+        <h2>प्रमाणपत्र (दाखला ) सत्यापन</h2>
+        <img src="i4.png" alt="प्रमाणपत्र" style="height:40px;"/>
+      </div>
+      <h2 id="certTitle">विवाह नोंद दाखला</h2>
+
+      <div class="info">
+        <p><strong>ग्रामपंचायत:</strong> <span id="valGram"></span></p>
+        <p><strong>दाखला क्रमांक:</strong> <span id="valKramank"></span></p>
+        <p><strong>दाखल्याचे नाव:</strong> <span id="valDakhla"></span></p>
+        <p><strong>दाखला मागणी केलेल्या व्यक्तीचे नाव:</strong> <span id="valPerson"></span></p>
+        <p><strong>ग्रामसेवकाचे नाव:</strong> <span id="valOfficer"></span></p>
+        <p><strong>दाखला वितरित दिनांक:</strong> <span id="valDate"></span></p>
+      </div>
+
+      <p class="note">ग्रामपंचायत <span id="valGram2"></span> यांचे वतीने वितरीत केलेले आहे.</p>
+    </div>
+  </div>
+
+  <script>
+    function fillData() {
+      const gram = document.getElementById('gram').value;
+      const kramank = document.getElementById('kramank').value;
+      const dakhlaName = document.getElementById('dakhlaName').value;
+      const personName = document.getElementById('personName').value;
+      const officerName = document.getElementById('officerName').value;
+      const date = document.getElementById('date').value;
+
+      document.getElementById('valGram').innerText = gram;
+      document.getElementById('valKramank').innerText = kramank;
+      document.getElementById('valDakhla').innerText = dakhlaName;
+      document.getElementById('valPerson').innerText = personName;
+      document.getElementById('valOfficer').innerText = officerName;
+      document.getElementById('valDate').innerText = date;
+      document.getElementById('valGram2').innerText = gram;
+      document.getElementById('certTitle').innerText = dakhlaName;
+
+      document.getElementById('certificateContent').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
